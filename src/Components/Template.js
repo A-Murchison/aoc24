@@ -13,7 +13,7 @@ export function Template(params) {
   const partOne = params.aoc.partOne;
   const partTwo = params.aoc.partTwo;
   return (
-    <div className="container">
+    <div className="container dark-background">
       <h1 className="title">{dayText}</h1>
       <div className="box-container">
         <div className="box-item">
