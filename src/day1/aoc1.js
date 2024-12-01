@@ -1,8 +1,8 @@
 import inputText from "./day1.txt";
 import "../site.css";
-import { GetTextFromFile, GetTextFromFileAsync } from "../fileReader";
+import { GetTextFromFile } from "../Helpers/fileReader";
 import React, { useEffect, useState } from "react";
-import Template from "../template";
+import Template from "../Components/Template";
 
 export function Day1() {
   const [input, setInput] = useState("");
@@ -100,10 +100,10 @@ function partTwo(textInput) {
     let firstInput = firstOutputArr[index];
     let startIndex = secondOutputArr.indexOf(firstInput);
     let startIndexLen = firstInput.length;
-    if (startIndex == -1 || startIndexLen == 0) {
+    if (startIndex === -1 || startIndexLen === 0) {
       continue;
     } else {
-      while (startIndex != -1) {
+      while (startIndex !== -1) {
         count += 1;
         startIndexLen = firstInput.length;
         startIndex = secondOutputArr.indexOf(

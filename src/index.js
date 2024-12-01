@@ -7,7 +7,7 @@ import reportWebVitals from './reportWebVitals';
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
-    <App />
+      <App /> {/* The various pages will be displayed by the `Main` component. */}
   </React.StrictMode>
 );
 

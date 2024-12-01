@@ -1,5 +1,4 @@
-import "./site.css";
-import React, { useEffect, useState } from "react";
+import "../site.css";
 import hljs from "highlight.js";
 import "highlight.js/styles/default.css";
 
@@ -19,19 +18,10 @@ export function Template(params) {
       <div className="box-container">
         <div className="box-item">
           <span className="box-title">Input Text</span>
-          <div className="box scrollDiv">{input}</div>
-        </div>
-        <div className="box-item">
-          <span className="box-title">Answer P1</span>
-          <div className="box">{output}</div>
-        </div>
-        <div className="box-item">
-          <span className="box-title">Answer P2</span>
-          <div className="box">{output2}</div>
-        </div>
+          <div className="box-input-text scrollDiv">{input}</div>
+        </div>       
       </div>
-      <div className="container">
-        <div className="row">
+      <div className="row" >
           <div class="code-container">
             <span>Part One</span>
             <pre>
@@ -43,8 +33,17 @@ export function Template(params) {
             <pre>
               <code>{partTwo}</code>
             </pre>
-          </div>
         </div>
+      </div>
+      <div className="box-container">
+      <div className="box-item">
+          <span className="box-title">Answer P1</span>
+          <div className="box">{output}</div>
+        </div>
+        <div className="box-item">
+          <span className="box-title">Answer P2</span>
+          <div className="box">{output2}</div>
+        </div>    
       </div>
     </div>
   );
