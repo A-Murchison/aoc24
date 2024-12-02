@@ -4,7 +4,9 @@ import "highlight.js/styles/default.css";
 
 export function Template(params) {
   const nodes = document.querySelectorAll("pre code");
-  nodes.forEach((node) => hljs.highlightBlock(node, { languages: ["javascript"] }));
+  nodes.forEach((node) =>
+    hljs.highlightBlock(node, { languages: ["javascript"] })
+  );
 
   const dayText = params.aoc.dayText;
   const input = params.aoc.input;

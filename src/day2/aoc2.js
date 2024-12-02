@@ -15,13 +15,12 @@ export function Day2() {
   }, []);
 
   useEffect(() => {
-    partOne(input).then((result) => { 
+    partOne(input).then((result) => {
       setOutput(result);
-
     });
   });
   useEffect(() => {
-    partTwo(input).then((result) =>{
+    partTwo(input).then((result) => {
       setOutput2(result);
     });
   });
@@ -34,7 +33,6 @@ export function Day2() {
   aoc.partOne = partOne.toString();
   aoc.partTwo = partTwo.toString();
 
-
   return <Template aoc={aoc}> </Template>;
 }
 
@@ -46,6 +44,18 @@ function partOne(textInput) {
     return new Promise((resolve, reject) => {
       resolve(outputVal);
     });
+  }
+  textInput = textInput.replaceAll("\r", "");
+  let textByLine = textInput.split("\n");
+
+  for (let index = 0; index < textByLine.length; index++) {
+    let line = textByLine[index];
+    let rows = line.split(" ");
+
+    let safe = areRowsSafe(rows)[0];
+    if (safe) {
+      outputVal++;
+    }
   }
 
   return new Promise((resolve, reject) => {
@@ -62,10 +72,83 @@ function partTwo(textInput) {
       resolve(outputVal);
     });
   }
+  textInput = textInput.replaceAll("\r", "");
+  let textByLine = textInput.split("\n");
+
+  for (let index = 0; index < textByLine.length; index++) {
+    let line = textByLine[index];
+    let rows = line.split(" ");
+    let result = areRowsSafe(rows);
+    let safe = result[0];
+    let badLevel = result[1];
+
+    let rowsCurrIndex = Array.from(rows);
+    let rowsNextIndex = Array.from(rows);
+    let rowsFirstIndex = Array.from(rows);
+
+    if (!safe) {
+      rowsFirstIndex.splice(0, 1);
+      rowsCurrIndex.splice(badLevel, 1);
+      rowsNextIndex.splice(badLevel - 1, 1);
+      let curr = areRowsSafe(rowsCurrIndex)[0];
+      let next = areRowsSafe(rowsNextIndex)[0];
+      let first = areRowsSafe(rowsFirstIndex)[0];
+      safe = curr || next || first;
+    }
+    if (safe) {
+      outputVal++;
+    }
+  }
 
   return new Promise((resolve, reject) => {
     resolve(outputVal);
   });
+}
+
+function areRowsSafe(rows) {
+  let safe = true;
+  let direction = "";
+  let badLevel = null;
+  for (let i = 1; i < rows.length && safe; i++) {
+    let curr = Number(rows[i - 1]);
+    let next = Number(rows[i]);
+    let diff = curr - next; //desc
+    if (i === 1) {
+      if (diff > 0) {
+        direction = "d"; //descending
+      } else if (diff < 0) {
+        direction = "a"; //ascending
+      }
+    }
+    safe = isLevelSafe(direction, diff, safe);
+    if (!safe) {
+      badLevel = i;
+    }
+  }
+  return [safe, badLevel];
+}
+
+function isLevelSafe(direction, diff, safe) {
+  // diff of 0 is unsafe
+  if (diff === 0) {
+    safe = false;
+    return safe;
+  } else {
+    //descending
+    if (diff > 0 && direction !== "d") {
+      safe = false;
+      return safe;
+    }
+    //ascending
+    else if (diff < 0 && direction !== "a") {
+      safe = false;
+      return safe;
+    }
+  }
+
+  diff = Math.abs(diff);
+  safe = diff !== 0 && diff <= 3;
+  return safe;
 }
 
 export default Day2;
