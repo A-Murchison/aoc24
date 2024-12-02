@@ -94,9 +94,7 @@ code {
   justify-content: start;
 }
 
-.navbar li {
-  margin: 0 20px;
-}
+
 
 .navbar a {
   color: white;
@@ -138,4 +136,57 @@ code {
     font-size: 16px;
     padding: 8px 15px;
   }
+}
+
+/* Dropdown Container */
+.dropdown {
+  position: relative;
+  display: inline-block;
+}
+
+/* Dropdown Menu */
+.dropdown-menu {
+  display: none; /* Hidden by default */
+  position: absolute;
+  top: 100%; /* Aligns the dropdown vertically below the parent */
+  left: 0;
+  background-color: #f5f5f5; /* Matches the light theme in your design */
+  border: 1px solid #4A90E2;
+  border-radius: 5px;
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+  z-index: 1000;
+  padding: 0;
+  list-style: none;
+  width: 100%;
+}
+
+/* Dropdown Item */
+.dropdown-menu li {
+  /* padding: 10px 15px;
+  font-size: 16px; */
+}
+
+/* Link Styles in Dropdown */
+.dropdown-menu li a {
+  text-decoration: none;
+  color: #333;
+  display: block;
+  transition: background-color 0.3s, color 0.3s;
+  overflow: hidden;
+  white-space: nowrap;
+}
+
+.dropdown-menu li a:hover {
+  background-color: #4A90E2; /* Matches navbar hover color */
+  color: white;
+}
+
+/* Show Dropdown on Hover */
+.dropdown:hover .dropdown-menu {
+  display: block;
+}
+
+/* For Navbar Dropdown Consistency */
+.navbar .dropdown-menu {
+  margin-top: 10px;
 }

@@ -8,7 +8,6 @@ export function Day1() {
   const [input, setInput] = useState("");
   const [output, setOutput] = useState("");
   const [output2, setOutput2] = useState("");
-
   useEffect(() => {
     GetTextFromFile(inputText).then((text) => {
       setInput(text);
@@ -16,10 +15,15 @@ export function Day1() {
   }, []);
 
   useEffect(() => {
-    partOne(input).then((result) => setOutput(result));
+    partOne(input).then((result) => { 
+      setOutput(result);
+
+    });
   });
   useEffect(() => {
-    partTwo(input).then((result) => setOutput2(result));
+    partTwo(input).then((result) =>{
+      setOutput2(result);
+    });
   });
 
   let aoc = {};
@@ -29,6 +33,7 @@ export function Day1() {
   aoc.output2 = output2;
   aoc.partOne = partOne.toString();
   aoc.partTwo = partTwo.toString();
+
 
   return <Template aoc={aoc}> </Template>;
 }
