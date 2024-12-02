@@ -92,17 +92,21 @@ function partTwo(textInput) {
     let safe = result[0];
     let badLevel = result[1];
 
+    //Generate 3 arrays to test if removing a single element will make the row safe
     let rowsCurrIndex = Array.from(rows);
     let rowsNextIndex = Array.from(rows);
     let rowsFirstIndex = Array.from(rows);
 
     if (!safe) {
       rowsFirstIndex.splice(0, 1);
-      rowsCurrIndex.splice(badLevel, 1);
-      rowsNextIndex.splice(badLevel - 1, 1);
-      let curr = areRowsSafe(rowsCurrIndex)[0];
-      let next = areRowsSafe(rowsNextIndex)[0];
       let first = areRowsSafe(rowsFirstIndex)[0];
+
+      rowsCurrIndex.splice(badLevel, 1);
+      let curr = areRowsSafe(rowsCurrIndex)[0];
+
+      rowsNextIndex.splice(badLevel - 1, 1);
+      let next = areRowsSafe(rowsNextIndex)[0];
+      
       safe = curr || next || first;
     }
     if (safe) {
