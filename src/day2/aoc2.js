@@ -30,8 +30,18 @@ export function Day2() {
   aoc.input = input;
   aoc.output = output;
   aoc.output2 = output2;
-  aoc.partOne = partOne.toString();
-  aoc.partTwo = partTwo.toString();
+  aoc.partOne =
+    partOne.toString() +
+    "\n " +
+    areRowsSafe.toString() +
+    "\n " +
+    isLevelSafe.toString();
+  aoc.partTwo =
+    partTwo.toString() +
+    "\n " +
+    areRowsSafe.toString() +
+    "\n " +
+    isLevelSafe.toString();
 
   return <Template aoc={aoc}> </Template>;
 }
