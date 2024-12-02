@@ -37,26 +37,26 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  background-color: #F5F5F5;
+  background-color: #282c34;
   border: 2px solid #4A90E2;
   border-radius: 10px;
   box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.2);
   font-size: 1.2rem;
   font-weight: 500;
-  color: #333;
+  color: #f2f5f8;
 }
 .box-input-text {
   height: 200px;
   max-width: 80%;
   display: flex;
   justify-content: center;
-  background-color: #F5F5F5;
+  background-color: #282c34;
   border: 2px solid #4A90E2;
   border-radius: 10px;
   box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.2);
   font-size: 1.2rem;
   font-weight: 500;
-  color: #333;
+  color: #f2f5f8;
 }
 
 .read-only-container {
@@ -81,11 +81,11 @@
   padding: 10px;
   border: 1px solid #ccc;
   border-radius: 8px;
-  background-color: #f9f9f9;
+  background-color: #282c34;
   font-family: 'Arial', sans-serif;
   font-size: 14px;
   line-height: 1.5;
-  color: #333;
+  color: #f2f5f8;
   resize: none;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
@@ -240,4 +240,33 @@ pre, code {
 /* For Navbar Dropdown Consistency */
 .navbar .dropdown-menu {
   margin-top: 10px;
+}
+
+/* Scroll bar track */
+::-webkit-scrollbar {
+  width: 8px; /* Width of the vertical scrollbar */
+  height: 8px; /* Height of the horizontal scrollbar */
+}
+
+/* Scroll bar track */
+::-webkit-scrollbar-track {
+  background: #1e1e1e; /* Dark background */
+  border-radius: 4px;
+}
+
+/* Scroll bar thumb */
+::-webkit-scrollbar-thumb {
+  background: #4b8bfc; /* Blue thumb color */
+  border-radius: 4px;
+  border: 2px solid #1e1e1e; /* Match track color for a seamless design */
+}
+
+/* Scroll bar hover effect */
+::-webkit-scrollbar-thumb:hover {
+  background: #367cfb; /* Slightly brighter blue on hover */
+}
+
+/* Optional: Styling for horizontal scrollbars */
+::-webkit-scrollbar-corner {
+  background: #1e1e1e; /* Matches the track */
 }

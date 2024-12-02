@@ -1,19 +1,22 @@
-import "../site.css";
+import React, { useEffect, useRef } from "react";
 import hljs from "highlight.js";
-import "highlight.js/styles/default.css";
+import "highlight.js/styles/atom-one-dark.css";
 
-export function Template(params) {
-  const nodes = document.querySelectorAll("pre code");
-  nodes.forEach((node) =>
-    hljs.highlightBlock(node, { languages: ["javascript"] })
-  );
+import "../site.css";
 
-  const dayText = params.aoc.dayText;
-  const input = params.aoc.input;
-  const output = params.aoc.output;
-  const output2 = params.aoc.output2;
-  const partOne = params.aoc.partOne;
-  const partTwo = params.aoc.partTwo;
+export function Template({ aoc }) {
+  const { dayText, input, output, output2, partOne, partTwo } = aoc;
+
+  // Refs to access code blocks for highlighting
+  const partOneRef = useRef(null);
+  const partTwoRef = useRef(null);
+
+  useEffect(() => {
+    // Highlight specific code blocks after render
+    if (partOneRef.current) hljs.highlightElement(partOneRef.current);
+    if (partTwoRef.current) hljs.highlightElement(partTwoRef.current);
+  }, [partOne, partTwo]); // Re-run if code changes
+
   return (
     <div className="container dark-background">
       <h1 className="title">{dayText}</h1>
@@ -30,13 +33,13 @@ export function Template(params) {
         <div className="code-container">
           <span>Part One</span>
           <pre>
-            <code>{partOne}</code>
+            <code ref={partOneRef}>{partOne}</code>
           </pre>
         </div>
         <div className="code-container">
           <span>Part Two</span>
           <pre>
-            <code>{partTwo}</code>
+            <code ref={partTwoRef}>{partTwo}</code>
           </pre>
         </div>
       </div>
