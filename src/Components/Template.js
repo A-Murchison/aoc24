@@ -17,9 +17,14 @@ export function Template(params) {
   return (
     <div className="container dark-background">
       <h1 className="title">{dayText}</h1>
-      <div className="box-container">
-          <span className="box-title" >Input Text</span>
-          <div className="box-input-text scrollDiv">{input}</div>
+
+      <div className="read-only-container">
+        <span className="label">Input Text</span>
+        <textarea
+          className="read-only-textbox"
+          value={input}
+          readOnly
+        />
       </div>
       <div className="row">
         <div className="code-container">
