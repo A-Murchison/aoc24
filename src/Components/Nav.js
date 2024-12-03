@@ -34,13 +34,13 @@ const Nav = () => {
             <Link to="#">Days</Link>
             {dropdownOpen && (
               <ul className="dropdown-menu">
-                <li>
+                <li onClick={closeDropdown}>
                   <Link to="/Day1">Day 1</Link>
                 </li>
-                <li>
+                <li onClick={closeDropdown}>
                   <Link to="/Day2">Day 2</Link>
                 </li>
-                <li>
+                <li onClick={closeDropdown}>
                   <Link to="/Day3">Day 3</Link>
                 </li>
               </ul>
