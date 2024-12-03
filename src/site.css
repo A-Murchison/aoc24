@@ -3,7 +3,10 @@
   color: #f2f5f8;
 }
 
-
+* {
+  margin: 0;
+  padding: 0;
+}
 .scrollDiv {
   overflow-y: scroll;
 
@@ -48,6 +51,7 @@
 
 .box-title {
   margin-bottom: 5px;
+    margin-top: 5px;
 }
 
 .box-item{
@@ -56,6 +60,7 @@
     justify-content: center;
     align-items: center;
     flex-wrap: wrap;
+    margin-bottom: 5px;
 }
 
 .box-input-text {
@@ -119,7 +124,7 @@
   box-sizing: border-box; /* Include padding and border in total width */
 }
 
-@media screen and (max-width: 768px) {
+@media screen and (max-width: 1200px) {
   .code-container{
     max-width: 90%;
   }
