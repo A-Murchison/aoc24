@@ -1,3 +1,21 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="green" class="bi bi-tree-fill" viewBox="0 0 16 16">
-  <path d="M8.416.223a.5.5 0 0 0-.832 0l-3 4.5A.5.5 0 0 0 5 5.5h.098L3.076 8.735A.5.5 0 0 0 3.5 9.5h.191l-1.638 3.276a.5.5 0 0 0 .447.724H7V16h2v-2.5h4.5a.5.5 0 0 0 .447-.724L12.31 9.5h.191a.5.5 0 0 0 .424-.765L10.902 5.5H11a.5.5 0 0 0 .416-.777z"/>
+<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16">
+  <!-- Define a texture pattern -->
+  <defs>
+    <pattern id="treeTexture" patternUnits="userSpaceOnUse" width="4" height="4">
+      <path d="M0 0 L4 4 M0 4 L4 0" stroke="#33B1B1" stroke-width="0.5"/>
+    </pattern>
+
+    <!-- Define a greenish gradient similar to #61DAFB -->
+    <linearGradient id="treeGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#61DAFB; stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#3A9E9E; stop-opacity:1" />
+    </linearGradient>
+  </defs>
+
+  <!-- Tree Shape with Texture and Gradient -->
+  <path d="M8.416.223a.5.5 0 0 0-.832 0l-3 4.5A.5.5 0 0 0 5 5.5h.098L3.076 8.735A.5.5 0 0 0 3.5 9.5h.191l-1.638 3.276a.5.5 0 0 0 .447.724H7V16h2v-2.5h4.5a.5.5 0 0 0 .447-.724L12.31 9.5h.191a.5.5 0 0 0 .424-.765L10.902 5.5H11a.5.5 0 0 0 .416-.777z" 
+        fill="url(#treeGradient)" stroke="none"/>
+  <!-- Add Texture over the Tree Shape -->
+  <path d="M8.416.223a.5.5 0 0 0-.832 0l-3 4.5A.5.5 0 0 0 5 5.5h.098L3.076 8.735A.5.5 0 0 0 3.5 9.5h.191l-1.638 3.276a.5.5 0 0 0 .447.724H7V16h2v-2.5h4.5a.5.5 0 0 0 .447-.724L12.31 9.5h.191a.5.5 0 0 0 .424-.765L10.902 5.5H11a.5.5 0 0 0 .416-.777z" 
+        fill="url(#treeTexture)" opacity="0.2"/>
 </svg>
