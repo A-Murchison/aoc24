@@ -20,7 +20,7 @@ export function Template({ aoc }) {
   return (
     <div className="container dark-background">
       <h1 className="title">
-        <a href={aocLink} target="_blank">
+        <a href={aocLink} rel="noreferrer" target="_blank">
           {dayTitle}
         </a>
       </h1>
