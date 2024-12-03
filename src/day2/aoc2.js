@@ -26,7 +26,7 @@ export function Day2() {
   });
 
   let aoc = {};
-  aoc.dayText = "Day 2";
+  aoc.dayText = "2";
   aoc.input = input;
   aoc.output = output;
   aoc.output2 = output2;
@@ -106,7 +106,7 @@ function partTwo(textInput) {
 
       rowsNextIndex.splice(badLevel - 1, 1);
       let next = areRowsSafe(rowsNextIndex)[0];
-      
+
       safe = curr || next || first;
     }
     if (safe) {

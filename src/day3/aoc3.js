@@ -26,7 +26,7 @@ export function Day3() {
   });
 
   let aoc = {};
-  aoc.dayText = "Day 3";
+  aoc.dayText = "3";
   aoc.input = input;
   aoc.output = output;
   aoc.output2 = output2;

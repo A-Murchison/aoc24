@@ -1,12 +1,12 @@
 import React, { useEffect, useRef } from "react";
 import hljs from "highlight.js";
 import "highlight.js/styles/atom-one-dark.css";
-
 import "../site.css";
 
 export function Template({ aoc }) {
   const { dayText, input, output, output2, partOne, partTwo } = aoc;
-
+  const aocLink = "https://adventofcode.com/2024/day/" + dayText;
+  const dayTitle = "Day " + dayText;
   // Refs to access code blocks for highlighting
   const partOneRef = useRef(null);
   const partTwoRef = useRef(null);
@@ -19,15 +19,15 @@ export function Template({ aoc }) {
 
   return (
     <div className="container dark-background">
-      <h1 className="title">{dayText}</h1>
+      <h1 className="title">
+        <a href={aocLink} target="_blank">
+          {dayTitle}
+        </a>
+      </h1>
 
       <div className="read-only-container">
         <span className="label">Input Text</span>
-        <textarea
-          className="read-only-textbox"
-          value={input}
-          readOnly
-        />
+        <textarea className="read-only-textbox" value={input} readOnly />
       </div>
       <div className="row">
         <div className="code-container">

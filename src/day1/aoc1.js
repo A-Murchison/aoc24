@@ -15,25 +15,23 @@ export function Day1() {
   }, []);
 
   useEffect(() => {
-    partOne(input).then((result) => { 
+    partOne(input).then((result) => {
       setOutput(result);
-
     });
   });
   useEffect(() => {
-    partTwo(input).then((result) =>{
+    partTwo(input).then((result) => {
       setOutput2(result);
     });
   });
 
   let aoc = {};
-  aoc.dayText = "Day 1";
+  aoc.dayText = "1";
   aoc.input = input;
   aoc.output = output;
   aoc.output2 = output2;
   aoc.partOne = partOne.toString();
   aoc.partTwo = partTwo.toString();
-
 
   return <Template aoc={aoc}> </Template>;
 }

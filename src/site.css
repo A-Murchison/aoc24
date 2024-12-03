@@ -29,11 +29,10 @@
   width: 100%;
     justify-content: space-around;
     align-items: center;
+    flex-wrap: wrap;
 }
 
 .box {
-  width: 200px;
-  height: 200px;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -44,7 +43,21 @@
   font-size: 1.2rem;
   font-weight: 500;
   color: #f2f5f8;
+  padding: 1em;
 }
+
+.box-title {
+  margin-bottom: 5px;
+}
+
+.box-item{
+  display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
 .box-input-text {
   height: 200px;
   max-width: 80%;
@@ -269,4 +282,12 @@ pre, code {
 /* Optional: Styling for horizontal scrollbars */
 ::-webkit-scrollbar-corner {
   background: #1e1e1e; /* Matches the track */
+}
+
+.title a{
+  display: block;
+    height: 100%;
+    width: 100%;
+    text-decoration: none;
+    color: #f2f5f8;
 }
