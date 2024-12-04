@@ -1,1 +1,1 @@
-#AOC 2024 - Adam Murchison
+AOC 2024 - Adam Murchison
