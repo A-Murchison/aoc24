@@ -1,10 +1,6 @@
 import React, { useState } from "react";
 import { BrowserRouter as Router, Route, Routes, Link } from "react-router-dom";
 import routes from "./Routes.js";
-import Day1 from "../day1/aoc1.js";
-import Day2 from "../day2/aoc2.js";
-import Day3 from "../day3/aoc3.js";
-import Day4 from "../day4/aoc4.js";
 import HomePage from "./Home.js";
 import "../site.css";
 
@@ -63,54 +59,6 @@ const Nav = () => {
         })}
       </Routes>
     </Router>
-    // <Router>
-    //   <Routes>
-    //     {routes.map((route) => {
-    //       return <Route path="route.path" element={route.component} />;
-    //     })}
-    //   </Routes>
-    // </Router>
-
-    // <Router>
-    //   <nav className="navbar">
-    //     <ul>
-    //       <li>
-    //         <Link to="/">Home</Link>
-    //       </li>
-    //       <li
-    //         onMouseEnter={toggleDropdown}
-    //         onMouseLeave={closeDropdown}
-    //         className="dropdown"
-    //       >
-    //         <Link to="#">Days</Link>
-    //         {dropdownOpen && (
-    //           <ul className="dropdown-menu">
-    //             <li onClick={closeDropdown}>
-    //               <Link to="/Day1">Day 1</Link>
-    //             </li>
-    //             <li onClick={closeDropdown}>
-    //               <Link to="/Day2">Day 2</Link>
-    //             </li>
-    //             <li onClick={closeDropdown}>
-    //               <Link to="/Day3">Day 3</Link>
-    //             </li>
-    //             <li onClick={closeDropdown}>
-    //               <Link to="/Day4">Day 4</Link>
-    //             </li>
-    //           </ul>
-    //         )}
-    //       </li>
-    //     </ul>
-    //   </nav>
-
-    //   <Routes>
-    //     <Route path="/" element={<HomePage />} />
-    //     <Route path="/Day1" element={<Day1 />} />
-    //     <Route path="/Day2" element={<Day2 />} />
-    //     <Route path="/Day3" element={<Day3 />} />
-    //     <Route path="/Day4" element={<Day4 />} />
-    //   </Routes>
-    // </Router>
   );
 };
 

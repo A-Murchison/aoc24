@@ -1,12 +1,13 @@
 import "../site.css";
-import { GetTextFromFile } from "../Helpers/fileReader";
 import React, { useEffect, useState } from "react";
 import Template from "./CodePageTemplate";
 
+//TODO: build this out
 export function AnswerPageTemplate(
-  inputText,
-  codeOne,
-  codeTwo,
+  dayText,
+  input,
+  partOne,
+  partTwo,
   answerOne,
   answerTwo
 ) {
@@ -25,12 +26,12 @@ export function AnswerPageTemplate(
   });
 
   let aoc = {};
-  aoc.dayText = "1";
+  aoc.dayText = dayText;
   aoc.input = input;
   aoc.output = answerOne;
   aoc.output2 = answerTwo;
-  aoc.partOne = codeOne.toString();
-  aoc.partTwo = codeTwo.toString();
+  aoc.partOne = partOne.toString();
+  aoc.partTwo = partTwo.toString();
 
   return <Template aoc={aoc}> </Template>;
 }
