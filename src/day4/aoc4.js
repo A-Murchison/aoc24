@@ -46,10 +46,46 @@ function partOne(textInput) {
     });
   }
   textInput = textInput.replaceAll("\r", "");
+  let textArray = textInput.split("\n");
+
+  for (let i = 0; i < textArray.length; i++) {
+    let currLine = textArray[i];
+    for (let j = 0; j < currLine.length; j++) {
+      outputVal += GetXmas(textArray, i, j, 0, -1);
+      outputVal += GetXmas(textArray, i, j, 0, 1);
+
+      outputVal += GetXmas(textArray, i, j, -1, 0);
+      outputVal += GetXmas(textArray, i, j, 1, 0);
+
+      outputVal += GetXmas(textArray, i, j, 1, -1);
+      outputVal += GetXmas(textArray, i, j, 1, 1);
+      outputVal += GetXmas(textArray, i, j, -1, -1);
+      outputVal += GetXmas(textArray, i, j, -1, 1);
+    }
+  }
 
   return new Promise((resolve, reject) => {
     resolve(outputVal);
   });
+}
+
+function GetXmas(textArray, i, j, v, h) {
+  let result = 0;
+  if (textArray[i][j] === "X") {
+    if (
+      ((v >= 0 && i + 3 < textArray.length) || (v <= 0 && i - 3 >= 0)) &&
+      ((h >= 0 && j + 3 < textArray[i].length) || (h <= 0 && j - 3 >= 0))
+    ) {
+      if (textArray[i + v][j + h] === "M") {
+        if (textArray[i + v + v][j + h + h] === "A") {
+          if (textArray[i + v + v + v][j + h + h + h] === "S") {
+            result++;
+          }
+        }
+      }
+    }
+  }
+  return result;
 }
 
 // =====PART TWO =====
@@ -61,12 +97,49 @@ function partTwo(textInput) {
       resolve(outputVal);
     });
   }
-  
+  textInput = textInput.replaceAll("\r", "");
+  let textArray = textInput.split("\n");
+
+  for (let i = 0; i < textArray.length; i++) {
+    let currLine = textArray[i];
+    for (let j = 0; j < currLine.length; j++) {
+      outputVal += GetMas(textArray, i, j, 1, -1);
+      outputVal += GetMas(textArray, i, j, 1, 1);
+      outputVal += GetMas(textArray, i, j, -1, -1);
+      outputVal += GetMas(textArray, i, j, -1, 1);
+    }
+  }
+
+  outputVal = outputVal / 2;
   return new Promise((resolve, reject) => {
     resolve(outputVal);
   });
 }
 
+function GetMas(textArray, i, j, v, h) {
+  let result = 0;
+  if (textArray[i][j] === "M") {
+    if (
+      ((v >= 0 && i + 2 < textArray.length) || (v <= 0 && i - 2 >= 0)) &&
+      ((h >= 0 && j + 2 < textArray[i].length) || (h <= 0 && j - 2 >= 0))
+    ) {
+      if (textArray[i + v][j + h] === "A") {
+        if (textArray[i + v + v][j + h + h] === "S") {
+          let isCross = CheckOtherDiagnol(textArray, i, j, h, v);
+          if (isCross) {
+            result++;
+          }
+        }
+      }
+    }
+  }
+  return result;
+}
 
+function CheckOtherDiagnol(textArray, i, j, h, v) {
+  let first = textArray[i][j + h + h];
+  let second = textArray[i + v + v][j];
+  return (first === "M" && second === "S") || (first === "S" && second === "M");
+}
 
 export default Day4;
