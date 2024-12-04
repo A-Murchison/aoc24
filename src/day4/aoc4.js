@@ -2,7 +2,8 @@ import inputText from "./day4.txt";
 import "../site.css";
 import { GetTextFromFile } from "../Helpers/fileReader";
 import React, { useEffect, useState } from "react";
-import Template from "../Components/Template";
+import Template from "../Components/CodePageTemplate";
+import { GetTemplateData } from "../Helpers/templateData";
 
 export function Day4() {
   const [input, setInput] = useState("");
@@ -25,20 +26,20 @@ export function Day4() {
     });
   });
 
-  let aoc = {};
-  aoc.dayText = "4";
-  aoc.input = input;
-  aoc.output = output;
-  aoc.output2 = output2;
-  aoc.partOne = partOne.toString() + "\n" + "\n" + GetXmas.toString();
-  aoc.partTwo =
+  let aoc = GetTemplateData(
+    "4",
+    input,
+    output,
+    output2,
+    partOne.toString() + "\n" + "\n" + GetXmas.toString(),
     partTwo.toString() +
-    "\n" +
-    "\n" +
-    CheckOtherDiagnol.toString() +
-    "\n" +
-    "\n" +
-    GetMas.toString();
+      "\n" +
+      "\n" +
+      CheckOtherDiagnol.toString() +
+      "\n" +
+      "\n" +
+      GetMas.toString()
+  );
 
   return <Template aoc={aoc}> </Template>;
 }

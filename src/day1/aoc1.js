@@ -1,8 +1,10 @@
 import inputText from "./day1.txt";
 import "../site.css";
 import { GetTextFromFile } from "../Helpers/fileReader";
+import { GetTemplateData } from "../Helpers/templateData";
+
 import React, { useEffect, useState } from "react";
-import Template from "../Components/Template";
+import Template from "../Components/CodePageTemplate";
 
 export function Day1() {
   const [input, setInput] = useState("");
@@ -25,13 +27,14 @@ export function Day1() {
     });
   });
 
-  let aoc = {};
-  aoc.dayText = "1";
-  aoc.input = input;
-  aoc.output = output;
-  aoc.output2 = output2;
-  aoc.partOne = partOne.toString();
-  aoc.partTwo = partTwo.toString();
+  let aoc = GetTemplateData(
+    "1",
+    input,
+    output,
+    output2,
+    partOne.toString(),
+    partTwo.toString()
+  );
 
   return <Template aoc={aoc}> </Template>;
 }
