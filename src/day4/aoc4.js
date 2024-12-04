@@ -30,8 +30,15 @@ export function Day4() {
   aoc.input = input;
   aoc.output = output;
   aoc.output2 = output2;
-  aoc.partOne = partOne.toString();
-  aoc.partTwo = partTwo.toString();
+  aoc.partOne = partOne.toString() + "\n" + "\n" + GetXmas.toString();
+  aoc.partTwo =
+    partTwo.toString() +
+    "\n" +
+    "\n" +
+    CheckOtherDiagnol.toString() +
+    "\n" +
+    "\n" +
+    GetMas.toString();
 
   return <Template aoc={aoc}> </Template>;
 }
@@ -72,6 +79,7 @@ function partOne(textInput) {
 function GetXmas(textArray, i, j, v, h) {
   let result = 0;
   if (textArray[i][j] === "X") {
+    //check that we don't go outside the index
     if (
       ((v >= 0 && i + 3 < textArray.length) || (v <= 0 && i - 3 >= 0)) &&
       ((h >= 0 && j + 3 < textArray[i].length) || (h <= 0 && j - 3 >= 0))
@@ -119,6 +127,7 @@ function partTwo(textInput) {
 function GetMas(textArray, i, j, v, h) {
   let result = 0;
   if (textArray[i][j] === "M") {
+    //check that we don't go outside the index
     if (
       ((v >= 0 && i + 2 < textArray.length) || (v <= 0 && i - 2 >= 0)) &&
       ((h >= 0 && j + 2 < textArray[i].length) || (h <= 0 && j - 2 >= 0))
