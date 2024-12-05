@@ -159,7 +159,7 @@ function partTwo(textInput) {
   });
 }
 
-const swapElements = (arr, pos1, pos2) => {
+function swapElements(arr, pos1, pos2) {
   const temp = arr[pos1];
   arr[pos1] = arr[pos2];
   arr[pos2] = temp;
