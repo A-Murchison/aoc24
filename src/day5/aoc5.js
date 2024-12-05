@@ -32,8 +32,8 @@ export function Day5() {
     input,
     output,
     output2,
-    partOne.toString(),
-    partTwo.toString()
+    partOne.toString() + "\n" + calculateMiddleNumberTotal.toString(),
+    partTwo.toString() + "\n" + calculateMiddleNumberTotal.toString() + swapElements.toString()
   );
 
   return <Template aoc={aoc}> </Template>;
@@ -60,14 +60,6 @@ function partOne(textInput) {
   let values = textByLine.slice(textByLine.indexOf("") + 1, textByLine.length);
 
   let outputLines = [];
-  outputVal = calculateValues(values, keyDict, outputLines, outputVal);
-
-  return new Promise((resolve, reject) => {
-    resolve(outputVal);
-  });
-}
-
-function calculateValues(values, keyDict, outputLines, outputVal) {
   for (let i = 0; i < values.length; i++) {
     let currentLine = values[i].split(",");
     currentLine = currentLine.reverse();
@@ -92,7 +84,10 @@ function calculateValues(values, keyDict, outputLines, outputVal) {
   }
 
   outputVal = calculateMiddleNumberTotal(outputLines, outputVal);
-  return outputVal;
+
+  return new Promise((resolve, reject) => {
+    resolve(outputVal);
+  });
 }
 
 function calculateMiddleNumberTotal(outputLines, outputVal) {
@@ -133,14 +128,19 @@ function partTwo(textInput) {
     let pushVal = false;
     for (let j = 0; j < currentLine.length && !breakLoops; j++) {
       let currentChar = currentLine[j];
+
       let validValuesAfterCurrent = keyDict.filter((key) => {
         return key.key === currentChar;
       });
       for (let k = j + 1; k < currentLine.length && !breakLoops; k++) {
         let nextChar = currentLine[k];
         if (validValuesAfterCurrent.some((key) => key.value === nextChar)) {
-          // switch order of nextChar and currentChar 
           currentLine = swapElements(currentLine, j, k);
+          //if there's a switch, start from this point again. Probably a way faster way to do this.
+          currentChar = currentLine[j];
+          validValuesAfterCurrent = keyDict.filter((key) => {
+            return key.key === currentChar;
+          });
           pushVal = true;
         }
 
@@ -148,7 +148,6 @@ function partTwo(textInput) {
           if (pushVal) {
             outputLines.push(currentLine);
           }
-          breakLoops = true;
         }
       }
     }
