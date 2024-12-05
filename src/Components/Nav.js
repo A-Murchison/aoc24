@@ -34,7 +34,7 @@ const Nav = () => {
               <ul className="dropdown-menu">
                 {routes.map((route) => {
                   return (
-                    <li onClick={closeDropdown}>
+                    <li name={route.name} onClick={closeDropdown}>
                       <Link to={route.path}>{route.name}</Link>
                     </li>
                   );
