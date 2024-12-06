@@ -117,10 +117,10 @@ function partOne(textInput) {
 
   //function to get only unique values
   const uniqueArray = [...new Set(coordinatesVisited)];
-  console.log(textByLine);
+  let outputStr = textByLine.join("\n");
   outputVal = uniqueArray.length;
   return new Promise((resolve, reject) => {
-    resolve(outputVal);
+    resolve("total squares:" + outputVal);
   });
 }
 
