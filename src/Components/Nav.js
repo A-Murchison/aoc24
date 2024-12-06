@@ -21,7 +21,7 @@ const Nav = () => {
     <Router>
       <nav className="navbar">
         <ul>
-          <li>
+          <li name="home">
             <Link to="/">Home</Link>
           </li>
           <li
