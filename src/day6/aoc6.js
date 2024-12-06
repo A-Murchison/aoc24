@@ -117,6 +117,7 @@ function partOne(textInput) {
 
   //function to get only unique values
   const uniqueArray = [...new Set(coordinatesVisited)];
+  console.log(textByLine);
   outputVal = uniqueArray.length;
   return new Promise((resolve, reject) => {
     resolve(outputVal);
